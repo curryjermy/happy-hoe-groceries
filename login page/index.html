@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="/login page/main.css">
+</head>
+<body>
+    
+    <div class="form-structor">
+        <div class="signup">
+            <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+            <div class="form-holder">
+                <input type="text" class="input" placeholder="Name" id="name" required />
+                <input type="email" class="input" placeholder="Email" id="email" required />
+                <input type="password" class="input" placeholder="Password" id="password" required />
+            </div>
+            <button class="submit-btn">Sign up</button>
+        </div>
+        <div class="login slide-up">
+            <div class="center">
+                <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                <div class="form-holder">
+                    <input type="email" class="input" placeholder="Email" id="login-email" required />
+                    <input type="password" class="input" placeholder="Password" id="login-password" required />
+                </div>
+                <button class="submit-btn" onclick="window.location.href='/dashbord-purple/src/index.html'">Log in</button> 
+            </div>
+        </div>
+    </div>
+    <script src="/login page/main.js"></script>
+</body>
+</html>
