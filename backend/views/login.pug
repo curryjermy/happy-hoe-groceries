@@ -1,0 +1,16 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login page
+  link(rel='stylesheet' href='/css/main.css')
+.form-structor
+  .center
+      h2#login.form-title
+        span or
+        | Log in
+      .form-holder
+        input#login-email.input(type='email' name="email" placeholder='Email' )
+        input#login-password.input(type='password' name="password" placeholder='Password' )
+      button.submit-btn(onclick="window.location.href='/dashboard'") Log in
+script(src='/js/main3.js')

@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login page
+  link(rel='stylesheet' href='/login page/main.css')
+.form-structor
+  .signup
+    h2#signup.form-title
+      span or
+      | Sign up
+    .form-holder
+      input#name.input(type='text' placeholder='Name' required='')
+      input#email.input(type='email' placeholder='Email' required='')
+      input#password.input(type='password' placeholder='Password' required='')
+    button.submit-btn Sign up
+  .login.slide-up
+    .center
+      h2#login.form-title
+        span or
+        | Log in
+      .form-holder
+        input#login-email.input(type='email' placeholder='Email' required='')
+        input#login-password.input(type='password' placeholder='Password' required='')
+      button.submit-btn(onclick="window.location.href='/dashbord-purple/src/index.html'") Log in
+script(src='/login page/main.js')
