@@ -13,13 +13,15 @@ const expressSession = require("express-session")({
 require("dotenv").config();
 
 //import models
-const khari = require("./models/signup")
+const Signup = require("./models/signup")
 const Stock = require("./models/stock")
+const Sales = require("./models/sale")
 
 //importing routes
 const allpagesRoutes = require("./routes/allpagesRoutes");
 const signupRoute = require("./routes/signupRoute");
 const stockRoute = require("./routes/stockRoute")
+const saleRoute = require("./routes/saleRoute");
 
 //instantation
 const app = express();
@@ -56,14 +58,15 @@ app.use(expressSession); // express session
 app.use(passport.initialize()); //intialize passport
 app.use(passport.session()); //use passport session
 
-passport.use(khari.createStrategy());
-passport.serializeUser(khari.serializeUser());
-passport.deserializeUser(khari.deserializeUser());
+passport.use(Signup.createStrategy());
+passport.serializeUser(Signup.serializeUser());
+passport.deserializeUser(Signup.deserializeUser());
 
 // use imported routes
 app.use("/", allpagesRoutes);
 app.use("/", signupRoute);
 app.use("/", stockRoute);
+app.use("/", saleRoute);
 
 app.get("*", (req, res) => {
   res.send("Error! This page does not exist");

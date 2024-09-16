@@ -168,80 +168,31 @@ head
           .col-lg-12.grid-margin.stretch-card
             .card
               .card-body
-                h4.card-title Table showing company stock
+                h4.card-title Table showing company sales 
                 table.table.table-striped
                   thead
                     tr
                       th  Name of Produce 
                       th  Type of produce 
                       th  Tonnage (kg)
-                      th  Cost of each kg (ugx)
+                      th  Amount paid (ugx)
+                      th  Name of the buyer 
+                      th  Branch name
                       th  Selling price of each kg (ugx)
                       th  Action
                   tbody
-                    tr
-                      td.py-1
-                        | Beans
-                      td  Yellow Beans 
-                      td
-                        .progress
-                          .progress-bar.bg-success(role='progressbar' style='width: 90%' aria-valuenow='90' aria-valuemin='0' aria-valuemax='100')
-                      td  300 tons 
-                      td  May 15, 2015 @ 1300hrs 
-                    tr
-                      td.py-1
-                        | Beans
-                      td  White Beans 
-                      td
-                        .progress
-                          .progress-bar.bg-danger(role='progressbar' style='width: 75%' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100')
-                      td  247 tons 
-                      td  July 1, 2015 @ 1400hrs 
-                    tr
-                      td.py-1
-                        | G-nuts
-                      td  Red G-nuts 
-                      td
-                        .progress
-                          .progress-bar.bg-warning(role='progressbar' style='width: 50%' aria-valuenow='50' aria-valuemin='0' aria-valuemax='100')
-                      td  200 tons 
-                      td  Apr 12, 2015 @ 1300hrs 
-                    tr
-                      td.py-1
-                        | Soya-Beans
-                      td  Soya-Beans 
-                      td
-                        .progress
-                          .progress-bar.bg-primary(role='progressbar' style='width: 70%' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100')
-                      td  237 tons 
-                      td  May 15, 2015 @ 1800hrs 
-                    tr
-                      td.py-1
-                        | Rice
-                      td  Brown Rice 
-                      td
-                        .progress
-                          .progress-bar.bg-danger(role='progressbar' style='width: 35%' aria-valuenow='35' aria-valuemin='0' aria-valuemax='100')
-                      td  100 tons 
-                      td  May 03, 2015 @ 1500hrs 
-                    tr
-                      td.py-1
-                        | Maize
-                      td  Yellow maize 
-                      td
-                        .progress
-                          .progress-bar.bg-info(role='progressbar' style='width: 65%' aria-valuenow='65' aria-valuemin='0' aria-valuemax='100')
-                      td  153 tons 
-                      td  April 05, 2015 1700hrs 
-                    tr
-                      td.py-1
-                        | maize
-                      td  White Maize 
-                      td
-                        .progress
-                          .progress-bar.bg-warning(role='progressbar' style='width: 20%' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100')
-                      td  120 tons 
-                      td  June 16, 2015 @ 1400 tons 
+                    each sale in sales
+                      tr 
+                        td #{sale.producename}
+                        td #{sale.producetype}
+                        td #{sale.produceweight}
+                        td #{sale.paidamount}
+                        td #{sale.buyername}
+                        td #{sale.branch}
+                        td #{sale.sellingprice}
+                        td 
+                          //- a.btn.btn-secondary.btn-sm(href="/update-stock/" + sale._id) edit                        
+
       // content-wrapper ends
       // partial:../../partials/_footer.html
       footer.footer

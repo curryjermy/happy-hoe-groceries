@@ -172,39 +172,39 @@ head
               .card-body
                 h4.card-title Produce sold by the company
                 p.card-description stock sold by the company is updated here
-                form#salesagent.forms-sample
+                form#salesagent.forms-sample(action="/salesagent-form" method="POST")
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputUsername2') Name of Produce
                     .col-sm-9
-                      input#producename.form-control(type='text' placeholder='input produce name')
+                      input#producename.form-control(type='text' placeholder='input produce name' name='producename')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputEmail2') Type of produce
                     .col-sm-9
-                      input#producetype.form-control(type='text' placeholder='input produce type')
+                      input#producetype.form-control(type='text' placeholder='input produce type' name='producetype')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Weight of produce(tonnage in kgs)
                     .col-sm-9
-                      input#weight.form-control(type='number' placeholder='weight should be in tonnes')
+                      input#weight.form-control(type='number' placeholder='weight should be in tonnes' name='produceweight')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Amount paid
                     .col-sm-9
-                      input#amountpaid.form-control(type='number' placeholder='price should be in ugx')
+                      input#amountpaid.form-control(type='number' placeholder='price should be in ugx' name='paidamount')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Name of the buyer
                     .col-sm-9
-                      input#buyername.form-control(type='text' placeholder='input dealer name')
+                      input#buyername.form-control(type='text' placeholder='input dealer name' name='buyername')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch name
                     .col-sm-9
-                      input#branchname.form-control(type='text' placeholder='input branch name')
+                      input#branchname.form-control(type='text' placeholder='input branch name' name='branch')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch contact info
                     .col-sm-9
-                      input#branchcontact.form-control(type='text' placeholder='input branch contact')
+                      input#branchcontact.form-control(type='text' placeholder='input branch contact' name='branchcontact')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') price produce is to be sold at
                     .col-sm-9
-                      input#sellingprice.form-control(type='number' placeholder='price should be in ugx')
+                      input#sellingprice.form-control(type='number' placeholder='price should be in ugx' name='sellingprice')
                   button.btn.btn-gradient-primary.me-2(type='submit' onclick="window.location.href='/salesagent-table'") Submit
                   button.btn.btn-light Cancel
       // content-wrapper ends

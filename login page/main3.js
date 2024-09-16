@@ -22,7 +22,7 @@ signupBtn.addEventListener('click', (e) => {
 		}else{
 			loginBtn.parentNode.parentNode.classList.add('slide-up')
 			parent.classList.remove('slide-up')
-		}
+		}   
 	});
 });
 

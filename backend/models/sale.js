@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const stockSchema = new mongoose.Schema({
+const saleSchema = new mongoose.Schema({
    producename: {
     type: String,
     trim: true,
@@ -8,23 +8,15 @@ const stockSchema = new mongoose.Schema({
     type: String,
     trim: true,
    },
-   procurementdate: {
-    type: String,
-    trim: true,
-   },
-   procurementtime: {
-    type: String,
-    trim: true,
-   },
    produceweight: {
     type: String,
     trim: true,
    },
-   producecost: {
+   paidamount: {
     type: String,
     trim: true,
    },
-   dealername: {
+   buyername: {
     type: String,
     trim: true,
    },
@@ -39,7 +31,7 @@ const stockSchema = new mongoose.Schema({
    sellingprice: {
     type: String,
     trim: true,
-   }
+   },
 });
-module.exports = mongoose.model("Stock", stockSchema);
+module.exports = mongoose.model("Sale", saleSchema);
 

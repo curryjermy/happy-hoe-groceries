@@ -3,11 +3,12 @@ const router = express.Router();
 const connectEnsureLogin = require("connect-ensure-login");
 
 const Stock = require("../models/stock");
+
 //addstock
-router.get("/addstock", (req,res)=>{
+router.get("/addstock", (req, res) => {
     res.render("produce-procured");
 })
-router.post("/addstock", async (req, res)=>{
+router.post("/addstock", async (req, res) => {
     try {
         const newProduce = Stock(req.body);
         await newProduce.save();
@@ -21,39 +22,66 @@ router.post("/addstock", async (req, res)=>{
 router.get("/stock-table", async (req, res) => {
     try {
         const stockItems = await Stock.find();
-        res.render("stock-table", 
-           {
-            title: "stock-table",
-            stocks: stockItems,
-           });
+        res.render("stock-table",
+            {
+                title: "stock-table",
+                stocks: stockItems,
+            });
     } catch (err) {
         res.status(400).send("unable to find stock")
     }
 });
 //update route
- router.get("/update-stock/:id", async (req, res)=>{
+router.get("/update-stock/:id", async (req, res) => {
     try {
-        const stock = await Stock.findOne({_id: req.params.id});
-    res.render("updateform", 
-        {
-            title: "updateform",
-            stock: stock,
-        }
-    )
-    } catch(err) {
+        const stock = await Stock.findOne({ _id: req.params.id });
+        res.render("updateform",
+            {
+                title: "updateform",
+                stock: stock,
+            }
+        )
+    } catch (err) {
         res.status(400).send("unable to update stock")
     }
- } );
- router.post("/update-stock", async (req, res)=>{
+});
+router.post("/update-stock", async (req, res) => {
     try {
         await Stock.findOneAndUpdate({
             _id: req.query.id
         }, req.body);
         res.redirect("/stock-table");
-    } catch(err) {
+    } catch (err) {
         res.status(400).send("couldnt update stock")
     }
- });
+});
+
+// GET request for the home page
+router.get('/stock-view', async (req, res) => {
+    try {
+      const stock = await Stock.aggregate([
+        { 
+          $match: { producename: { $in: ['beans', 'maize', 'soyabeans', 'cowpeas', 'gnuts', 'rice'] } }  
+        },
+        { 
+          $group: { 
+            _id: '$producename', 
+            totalProduceweight: { $sum: '$produceweight' }  
+          } 
+        }
+      ]);
+      
+      const stockData = stock.map(item => ({
+        producename: item._id,  
+        produceweight: item.totalProduceweight || 0 // Handle cases where weight is 0
+      }));
+
+      res.render('stock', { stock: stockData });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    }
+});
 
 
 
@@ -63,4 +91,9 @@ router.get("/stock-table", async (req, res) => {
 
 
 
-module.exports = router
+
+
+
+
+
+module.exports = router;

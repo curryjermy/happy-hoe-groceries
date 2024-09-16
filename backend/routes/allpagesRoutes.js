@@ -23,30 +23,21 @@ router.get("/landingpage", (req, res) => {
     res.render("landingpage");
 });
 
-
-router.get("/stock-view", (req, res)=>{
-    res.render("stock")
-});
-
 router.get("/signup", (req, res)=>{
-    res.render("signup-login")
+    res.render("signup")
 });
 
 router.get("/login", (req, res)=>{
     res.render("login")
 })
 
-router.get("/salesagent-form", (req, res)=>{
-    res.render("salesagent-form")
-});
+
 
 router.get("/salesagent-dashboard", (req, res)=>{
     res.render("salesagent-dashboard")
 });
 
-router.get("/salesagent-table", (req, res)=>{
-    res.render("salesagent-table")
-});
+
 
 
 

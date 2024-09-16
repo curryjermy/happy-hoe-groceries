@@ -51,67 +51,24 @@ head
 // Fruits Shop Start
 .container-fluid.fruite.py-5
   .container.py-5
-    h1.mb-4 PRODUCTS DEALT IN
+    h1.mb-4 COMPANY STOCK 
     .row.g-4
       .col-lg-12
         .row.g-4
           .col-6
         .col-lg-9
           .row.g-4.justify-content-center
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/beans in a sack.jpg' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Grains
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 Beans
-                  p We deal in a variety of bean types ranging from yellow to white to red beans
-                  .d-flex.justify-content-between.flex-lg-wrap
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/maize sacked.avif' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Grains
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 Maize
-                  p We deal in well processed maize
-                  .d-flex.justify-content-between.flex-lg-wrap
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/cow peas in a sack.webp' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Grains
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 Cow peas
-                  p We deal in fresh peas coming fresh out of the farm
-                  .d-flex.justify-content-between.flex-lg-wrap
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/gnuts.avif' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Grains
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 G-nuts
-                  p We supply g-nuts in both large and retail quanties
-                  .d-flex.justify-content-between.flex-lg-wrap
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/soya.jpg' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Grains
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 SoyaBeans
-                  p We deal in quality soya beans ready for pocessing and re-distribution
-                  .d-flex.justify-content-between.flex-lg-wrap
-            .col-md-6.col-lg-6.col-xl-4
-              .rounded.position-relative.fruite-item
-                .fruite-img
-                  img.img-fluid.w-100.rounded-top(src='/images/rice in a sack.jpg' alt='')
-                .text-white.bg-secondary.px-3.py-1.rounded.position-absolute(style='top: 10px; left: 10px;') Cereals
-                .p-4.border.border-secondary.border-top-0.rounded-bottom
-                  h4 Rice
-                  p We deal in a variety of rice types such as basmatti rice
-                  .d-flex.justify-content-between.flex-lg-wrap
+            each item in stock
+              .col-md-6.col-lg-6.col-xl-4
+                .rounded.position-relative.fruite-item
+                  .fruite-img
+                    // Dynamically adjust the image source if needed
+                    img.img-fluid.w-100.rounded-top(src=`/images/beans in a sack.jpg`, alt=item.producename)
+                  h4.cardtitle= item.producename.toUpperCase()
+                  .p-4.border.border-secondary.border-top-0.rounded-bottom
+                    h4 
+                    p stock available: #{item.produceweight} Kgs
+                    .d-flex.justify-content-between.flex-lg-wrap
 // Fruits Shop End
 // Footer Start
 .container-fluid.bg-dark.text-white-50.footer.pt-5.mt-5
