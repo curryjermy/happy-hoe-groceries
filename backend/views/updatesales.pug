@@ -11,6 +11,8 @@ head
   link(rel='stylesheet' href='/vendors/font-awesome/css/font-awesome.min.css')
   // endinject
   // Plugin css for this page
+  link(rel='stylesheet' href='/vendors/select2/select2.min.css')
+  link(rel='stylesheet' href='/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')
   // End plugin css for this page
   // inject:css
   // endinject
@@ -22,7 +24,7 @@ head
   // partial:../../partials/_navbar.html
   nav.navbar.default-layout-navbar.col-lg-12.col-12.p-0.fixed-top.d-flex.flex-row
     .text-center.navbar-brand-wrapper.d-flex.align-items-center.justify-content-start
-      a.navbar-brand.brand-logo(href='#')
+      a.navbar-brand.brand-logo(href='../../index.html')
         img(src='/images/happyhoe.png' alt='logo')
       a.navbar-brand.brand-logo-mini(href='../../index.html')
         img(src='/images/logo-mini.svg' alt='logo')
@@ -136,37 +138,16 @@ head
               // change to offline or busy as needed
             .nav-profile-text.d-flex.flex-column
               span.font-weight-bold.mb-2 Khari
-              span.text-secondary.text-small Branch Manager
+              span.text-secondary.text-small SalesAgent
             i.mdi.mdi-bookmark-check.text-success.nav-profile-badge
         li.nav-item
-          a.nav-link(href='/dashboard')
-            span.menu-title Dashboard
-            i.mdi.mdi-home.menu-icon
-        li.nav-item
-          a.nav-link(data-bs-toggle='collapse' href='#ui-basic' aria-expanded='false' aria-controls='ui-basic')
-            span.menu-title Sales
-            i.menu-arrow
-            i.mdi.mdi-crosshairs-gps.menu-icon
-          #ui-basic.collapse
-            ul.nav.flex-column.sub-menu
-              li.nav-item
-                a.nav-link(href='/charts') Produce sales
-        li.nav-item
           a.nav-link(data-bs-toggle='collapse' href='#forms' aria-expanded='false' aria-controls='forms')
-            span.menu-title Produce entry form
+            span.menu-title Produce form
             i.mdi.mdi-format-list-bulleted.menu-icon
           #forms.collapse
             ul.nav.flex-column.sub-menu
               li.nav-item
-                a.nav-link(href='/produce-procured') Produce procured
-        li.nav-item
-          a.nav-link(data-bs-toggle='collapse' href='#charts' aria-expanded='false' aria-controls='charts')
-            span.menu-title Charts
-            i.mdi.mdi-chart-bar.menu-icon
-          #charts.collapse
-            ul.nav.flex-column.sub-menu
-              li.nav-item
-                a.nav-link(href='/charts') ChartJs
+                a.nav-link(href='/salesagent-form') Produce sold
         li.nav-item
           a.nav-link(data-bs-toggle='collapse' href='#tables' aria-expanded='false' aria-controls='tables')
             span.menu-title Tables
@@ -174,47 +155,83 @@ head
           #tables.collapse
             ul.nav.flex-column.sub-menu
               li.nav-item
-                a.nav-link(href='/stock-table') Table showing company stock
+                a.nav-link(href='/salesagent-table') Basic table
     // partial
     .main-panel
       .content-wrapper
         .page-header
-          h3.page-title   
+          h3.page-title
           nav(aria-label='breadcrumb')
             ol.breadcrumb
               li.breadcrumb-item
-                a(href='#') Tables
-              li.breadcrumb-item.active(aria-current='page') Basic tables
+                a(href='#') Forms
+              li.breadcrumb-item.active(aria-current='page') Form elements
         .row
-          .col-lg-12.grid-margin.stretch-card
+          .col-md-6.grid-margin.stretch-card
             .card
               .card-body
-                h4.card-title Table showing company stock
-                table.table.table-striped
-                  thead
-                    tr
-                      th  Name of Produce 
-                      th  Type of produce 
-                      th  Weight of produce 
-                      th  Cost of produce 
-                      th  Selling price of produce
-                      th  Dealer name
-                      th  Branch name
-                      th  Action 
-                  tbody
-                    if stocks.length  
-                    each stock in stocks 
-                      tr 
-                        td #{stock.producename}
-                        td #{stock.producetype}
-                        td #{stock.produceweight}
-                        td #{stock.producecost}
-                        td #{stock.sellingprice}
-                        td #{stock.dealername}
-                        td #{stock.branch}
-                        td 
-                          a.btn.btn-secondary.btn-sm(href="/update-stock/" + stock._id) edit                        
-
+                h4.card-title Produce sold by the company
+                p.card-description stock sold by the company is updated here
+                form#salesagent.forms-sample(action="/update-sale?id=" + sale._id  method="POST")
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputUsername2') Name of Produce
+                    select(name="producename")
+                      option(value="maize" selected=producename === "maize") maize
+                      option(value="rice" selected=producename === "rice") rice
+                      option(value="gnuts" selected=producename === "gnuts") gnuts 
+                      option(value="soyabeans" selected=producename === "soyabeans") soyabeans 
+                      option(value="beans" selected=producename === "beans") beans 
+                      option(value="cowpeas" selected=producename === "cowpeas") cowpeas
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputEmail2') Type of produce
+                    select(name="producetype")
+                      option(value="grains" selected=producetype  === "grains") grains 
+                      option(value="cereals" selected=producetype  === "cereals") cereals
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputMobile') Date of sale
+                    .col-sm-9
+                      input#saledate.form-control(type='date' placeholder='Input date' name="saledate")
+                      span#saleDateError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputPassword2') Time of sale
+                    .col-sm-9
+                      input#saletime.form-control(type='time' placeholder='Input time' name="saletime")
+                      span#saleTimeError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Weight of produce(tonnage in kgs)
+                    .col-sm-9
+                      input#weight.form-control(type='number' placeholder='weight should be in tonnes' name='produceweight')
+                      span#weightError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Amount paid (Ugx)
+                    .col-sm-9
+                      input#amountpaid.form-control(type='number' placeholder='price should be in ugx' name='paidamount')
+                      span#amountPaidError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Name of the buyer
+                    .col-sm-9
+                      input#buyername.form-control(type='text' placeholder='input dealer name' name='buyername')
+                      span#buyerNameError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch name
+                    .col-sm-9
+                      select#branchname(name='branch')
+                        option(value='') select branch
+                        option(value='matuga') matugga
+                        option(value='maganjo') maganjo
+                      span#branchNameError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch contact info
+                    .col-sm-9
+                      input#branchcontact.form-control(type='text' placeholder='input branch contact' name='branchcontact')
+                      span#branchContactError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Salesagent name
+                    .col-sm-9
+                      input#salesagentName.form-control(type='text' placeholder='enter salesagent name' name='salesagentName')
+                      span#salesagentname.text-danger
+                  button.btn.btn-gradient-primary.me-2(type='submit') Submit
+                  button.btn.btn-light Cancel
       // content-wrapper ends
       // partial:../../partials/_footer.html
       footer.footer
@@ -234,6 +251,8 @@ head
 script(src='/vendors/js/vendor.bundle.base.js')
 // endinject
 // Plugin js for this page
+script(src='/vendors/select2/select2.min.js')
+script(src='/vendors/typeahead.js/typeahead.bundle.min.js')
 // End plugin js for this page
 // inject:js
 script(src='/js/off-canvas.js')
@@ -241,7 +260,12 @@ script(src='/js/misc.js')
 script(src='/js/settings.js')
 script(src='/js/todolist.js')
 script(src='/js/jquery.cookie.js')
-//- script(src="/js/validation.js") 
 // endinject
 // Custom js for this page
+script(src='/js/file-upload.js')
+script(src='/js/typeahead.js')
+script(src='/js/select2.js')
 // End custom js for this page
+// start of validation
+//- script(src='/js/validation.js')
+// end of validation

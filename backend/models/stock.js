@@ -9,7 +9,7 @@ const stockSchema = new mongoose.Schema({
     trim: true,
    },
    procurementdate: {
-    type: String,
+    type: Date,
     trim: true,
    },
    procurementtime: {
@@ -17,11 +17,11 @@ const stockSchema = new mongoose.Schema({
     trim: true,
    },
    produceweight: {
-    type: String,
+    type: Number,
     trim: true,
    },
    producecost: {
-    type: String,
+    type: Number,
     trim: true,
    },
    dealername: {

@@ -1,3 +1,4 @@
+/* Set the body styling for background and centering the form */
 body {
     margin: 0;
     padding: 0;
@@ -10,26 +11,24 @@ body {
     background-position: center;
     font-family: Arial, sans-serif;
   }
-  #header {
-    font-weight:900
-  }
-  #header {
-    color: #0b0b0c;
+  #logintitle {
+    font-weight: 900;
   }
 
-  .text-danger {
-    color: red;
-  }
+.text-danger {
+  color: red;
+}
 
   
   /* Styling for the form container */
-#registrationForm {
+  #registrationForm {
     background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
     width: 100%;
+    max-width: 500px; /* Ensures it doesn't shrink too much */
+    min-width: 320px; /* Prevents the form from becoming too small */
   }
   
   /* Form element styling */
@@ -46,9 +45,9 @@ body {
     width: 100%;
   }
   
-  /* Submit button styling */
-  .submit-btn {
-    background-color: #5cb85c;
+  /* Login button styling */
+  .login-btn {
+    background-color: #007bff;
     color: white;
     padding: 10px;
     width: 100%;
@@ -59,11 +58,11 @@ body {
     font-weight: bold;
   }
   
-  .submit-btn:hover {
-    background-color: #4cae4c;
+  .login-btn:hover {
+    background-color: #0056b3;
   }
   
-  /* Login link styling */
+  /* Signup link styling */
   a {
     display: block;
     text-align: center;

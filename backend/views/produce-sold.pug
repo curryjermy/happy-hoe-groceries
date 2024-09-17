@@ -199,35 +199,35 @@ head
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputUsername2') Name of Produce
                     .col-sm-9
-                      input#exampleInputUsername2.form-control(type='text' placeholder='input produce name')
+                      input#producename.form-control(type='text' placeholder='input produce name')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputEmail2') Type of produce
                     .col-sm-9
-                      input#exampleInputEmail2.form-control(type='text' placeholder='input produce type')
+                      input#producetype.form-control(type='text' placeholder='input produce type')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Weight of produce(tonnage in kgs)
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='weight should be in tonnes')
+                      input#weight.form-control(type='number' placeholder='weight should be in tonnes')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Amount paid
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='price should be in ugx')
+                      input#amountpaid.form-control(type='number' placeholder='price should be in ugx')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Name of the buyer
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='text' placeholder='input dealer name')
+                      input#buyername.form-control(type='text' placeholder='input dealer name')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch name
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='text' placeholder='input branch name')
+                      input#branchname.form-control(type='text' placeholder='input branch name')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch contact info
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='text' placeholder='input branch contact')
+                      input#branchcontact.form-control(type='text' placeholder='input branch contact')
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') price produce is to be sold at
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='price should be in ugx')
+                      input#sellingprice.form-control(type='number' placeholder='price should be in ugx')
                   button.btn.btn-gradient-primary.me-2(type='submit') Submit
                   button.btn.btn-light Cancel
       // content-wrapper ends
@@ -264,3 +264,4 @@ script(src='/js/file-upload.js')
 script(src='/js/typeahead.js')
 script(src='/js/select2.js')
 // End custom js for this page
+script(src="/js/validation.js") 

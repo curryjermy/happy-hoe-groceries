@@ -58,16 +58,16 @@ head
           .col-6
         .col-lg-9
           .row.g-4.justify-content-center
-            each item in stock
+            each item in aggregatedData
               .col-md-6.col-lg-6.col-xl-4
                 .rounded.position-relative.fruite-item
                   .fruite-img
                     // Dynamically adjust the image source if needed
-                    img.img-fluid.w-100.rounded-top(src=`/images/beans in a sack.jpg`, alt=item.producename)
-                  h4.cardtitle= item.producename.toUpperCase()
+                    img.img-fluid.w-100.rounded-top(src=`/images/grains.jpg`, alt=item.producename)
+                  h4.cardtitle= item._id  
                   .p-4.border.border-secondary.border-top-0.rounded-bottom
                     h4 
-                    p stock available: #{item.produceweight} Kgs
+                    p stock available: #{item.totalWeight} Kgs
                     .d-flex.justify-content-between.flex-lg-wrap
 // Fruits Shop End
 // Footer Start

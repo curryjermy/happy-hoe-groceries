@@ -177,35 +177,56 @@ head
                     label.col-sm-3.col-form-label(for='exampleInputUsername2') Name of Produce
                     .col-sm-9
                       input#producename.form-control(type='text' placeholder='input produce name' name='producename')
+                      span#produceError.text-danger
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputEmail2') Type of produce
                     .col-sm-9
                       input#producetype.form-control(type='text' placeholder='input produce type' name='producetype')
+                      span#produceTypeError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputMobile') Date of sale
+                    .col-sm-9
+                      input#saledate.form-control(type='date' placeholder='Input date' name="saledate")
+                      span#saleDateError.text-danger
+                  .form-group.row
+                    label.col-sm-3.col-form-label(for='exampleInputPassword2') Time of sale
+                    .col-sm-9
+                      input#saletime.form-control(type='time' placeholder='Input time' name="saletime")
+                      span#saleTimeError.text-danger
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Weight of produce(tonnage in kgs)
                     .col-sm-9
                       input#weight.form-control(type='number' placeholder='weight should be in tonnes' name='produceweight')
+                      span#weightError.text-danger
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Amount paid
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Amount paid (Ugx)
                     .col-sm-9
                       input#amountpaid.form-control(type='number' placeholder='price should be in ugx' name='paidamount')
+                      span#amountPaidError.text-danger
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Name of the buyer
                     .col-sm-9
                       input#buyername.form-control(type='text' placeholder='input dealer name' name='buyername')
+                      span#buyerNameError.text-danger
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch name
                     .col-sm-9
-                      input#branchname.form-control(type='text' placeholder='input branch name' name='branch')
+                      select#branchname(name='branch')
+                        option(value='') select branch
+                        option(value='matuga') matugga
+                        option(value='maganjo') maganjo
+                      span#branchNameError.text-danger
                   .form-group.row
                     label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch contact info
                     .col-sm-9
                       input#branchcontact.form-control(type='text' placeholder='input branch contact' name='branchcontact')
+                      span#branchContactError.text-danger
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') price produce is to be sold at
+                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Salesagent name
                     .col-sm-9
-                      input#sellingprice.form-control(type='number' placeholder='price should be in ugx' name='sellingprice')
-                  button.btn.btn-gradient-primary.me-2(type='submit' onclick="window.location.href='/salesagent-table'") Submit
+                      input#salesagentName.form-control(type='text' placeholder='enter salesagent name' name='salesagentName')
+                      span#salesagentname.text-danger
+                  button.btn.btn-gradient-primary.me-2(type='submit') Submit
                   button.btn.btn-light Cancel
       // content-wrapper ends
       // partial:../../partials/_footer.html

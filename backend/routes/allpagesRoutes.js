@@ -31,10 +31,12 @@ router.get("/login", (req, res)=>{
     res.render("login")
 })
 
-
-
 router.get("/salesagent-dashboard", (req, res)=>{
     res.render("salesagent-dashboard")
+});
+
+router.get("/reciept", (req, res)=>{
+    res.render("receipt")
 });
 
 

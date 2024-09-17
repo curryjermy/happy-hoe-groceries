@@ -197,47 +197,58 @@ head
                 p.card-description Company stock updated here
                 form.forms-sample(action="/addstock" method="POST")
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputUsername2') Name of Produce
+                    label.col-sm-3.col-form-label(for='producename') Name of Produce
                     .col-sm-9
                       input#producename.form-control(type='text' placeholder='input produce name' name="producename")
+                      span#error-producename.text-danger
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputEmail2') Type of produce
+                    label.col-sm-3.col-form-label(for='producetype') Type of produce
                     .col-sm-9
-                      input#exampleInputEmail2.form-control(type='text' placeholder='input produce type' name="producetype")
+                      input#producetype.form-control(type='text' placeholder='input produce type' name="producetype")
+                      span#error-producetype.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputMobile') Date of procurment
+                    label.col-sm-3.col-form-label(for='procurementdate') Date of procurement
                     .col-sm-9
-                      input#exampleInputMobile.form-control(type='date' placeholder='Input date' name="procurementdate")
+                      input#procurementdate.form-control(type='date' placeholder='Input date' name="procurementdate")
+                      span#error-procurementdate.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputPassword2') Time of procurement
+                    label.col-sm-3.col-form-label(for='procurementtime') Time of procurement
                     .col-sm-9
-                      input#exampleInputPassword2.form-control(type='time' placeholder='Input time' name="procurementtime")
+                      input#procurementtime.form-control(type='time' placeholder='Input time' name="procurementtime")
+                      span#error-procurementtime.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Weight of produce
+                    label.col-sm-3.col-form-label(for='produceweight') Weight of produce
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='weight should be in tonnes' name="produceweight")
+                      input#produceweight.form-control(type='number' placeholder='weight should be in tonnes' name="produceweight")
+                      span#error-produceweight.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Cost of produce
+                    label.col-sm-3.col-form-label(for='producecost') Cost of produce
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='price should be in ugx' name="producecost")
+                      input#producecost.form-control(type='number' placeholder='price should be in ugx' name="producecost")
+                      span#error-producecost.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Name of the dealer
+                    label.col-sm-3.col-form-label(for='dealername') Name of the dealer
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='text' placeholder='input dealer name' name="dealername")
+                      input#dealername.form-control(type='text' placeholder='input dealer name' name="dealername")
+                      span#error-dealername.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch name
+                    label.col-sm-3.col-form-label(for='branch') Branch name
                     .col-sm-9
-                      select#exampleInputConfirmPassword2(name='branch')
+                      select#branch.form-control(name='branch')
+                        option(value='') select branch
                         option(value='matuga') matugga
                         option(value='maganjo') maganjo
+                      span#error-branch.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') Branch contact info
+                    label.col-sm-3.col-form-label(for='branchcontact') Branch contact info
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='tel' placeholder='input branch contact' name="branchcontact")
+                      input#branchcontact.form-control(type='tel' placeholder='input branch contact' name="branchcontact")
+                      span#error-branchcontact.text-danger 
                   .form-group.row
-                    label.col-sm-3.col-form-label(for='exampleInputConfirmPassword2') price produce is to be sold at
+                    label.col-sm-3.col-form-label(for='sellingprice') Price produce is to be sold at
                     .col-sm-9
-                      input#exampleInputConfirmPassword2.form-control(type='number' placeholder='price should be in ugx' name="sellingprice")
+                      input#sellingprice.form-control(type='number' placeholder='price should be in ugx' name="sellingprice")
+                      span#error-sellingprice.text-danger 
                   button.btn.btn-gradient-primary.me-2(type='submit' value="save changes") Submit
                   button.btn.btn-light Cancel
       // content-wrapper ends
@@ -273,5 +284,5 @@ script(src='/js/jquery.cookie.js')
 script(src='/js/file-upload.js')
 script(src='/js/typeahead.js')
 script(src='/js/select2.js')
-script(src="/js/validation.js") 
+script(src="/js/stockValidation.js") 
 // End custom js for this page

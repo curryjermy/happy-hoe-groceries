@@ -178,7 +178,7 @@ head
                       th  Amount paid (ugx)
                       th  Name of the buyer 
                       th  Branch name
-                      th  Selling price of each kg (ugx)
+                      th  Salesagent name
                       th  Action
                   tbody
                     each sale in sales
@@ -189,9 +189,9 @@ head
                         td #{sale.paidamount}
                         td #{sale.buyername}
                         td #{sale.branch}
-                        td #{sale.sellingprice}
+                        td #{sale.salesagentName}
                         td 
-                          //- a.btn.btn-secondary.btn-sm(href="/update-stock/" + sale._id) edit                        
+                          a.btn.btn-secondary.btn-sm(href="/update-sale/" + sale._id) edit                        
 
       // content-wrapper ends
       // partial:../../partials/_footer.html

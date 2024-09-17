@@ -56,30 +56,24 @@ router.post("/update-stock", async (req, res) => {
     }
 });
 
-// GET request for the home page
 router.get('/stock-view', async (req, res) => {
     try {
-      const stock = await Stock.aggregate([
-        { 
-          $match: { producename: { $in: ['beans', 'maize', 'soyabeans', 'cowpeas', 'gnuts', 'rice'] } }  
-        },
-        { 
-          $group: { 
-            _id: '$producename', 
-            totalProduceweight: { $sum: '$produceweight' }  
-          } 
-        }
-      ]);
-      
-      const stockData = stock.map(item => ({
-        producename: item._id,  
-        produceweight: item.totalProduceweight || 0 // Handle cases where weight is 0
-      }));
+        const aggregatedData = await Stock.aggregate([
+            {
+                $match: { producename: { $in: ['beans', 'maize', 'soyabeans', 'cowpeas', 'gnuts', 'rice'] } }
+            },
+            {
+                $group: {
+                    _id: "$producename", // Group by product name
+                    totalWeight: { $sum: { $toDouble: "$produceweight" } }, // Sum of weights
+                }
+            },
+        ]);
 
-      res.render('stock', { stock: stockData });
+        res.render('stock', { aggregatedData });
     } catch (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
+        console.error(err);
+        res.status(500).send('Error in fetching aggregation');
     }
 });
 
